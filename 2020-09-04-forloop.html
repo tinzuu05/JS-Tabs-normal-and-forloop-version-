@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: rgb(80, 80, 80);
+        }
+
+        .tab-btn-group {
+            width: 900px;
+            height: 80px;
+            background-color: rgb(29, 29, 29);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+        }
+
+        .tab-btn {
+            width: 100px;
+            height: 60px;
+            line-height: 60px;
+            background-color: rgba(95, 158, 160, 1);
+            text-align: center;
+            color: wheat;
+            font-weight: 900;
+            font-size: 24px;
+            transition: 0.4s;
+        }
+
+        .tab-btn:hover {
+            cursor: pointer;
+            background-color: rgba(95, 158, 160, 0.8);
+        }
+
+        .tab-btn.active {
+            background-color: brown;
+        }
+
+        .tab-content-group {
+            width: 900px;
+            background-color: rgb(29, 131, 131);
+            margin: auto;
+            position: relative;
+        }
+
+        .tab-content {
+            background-color: rgb(29, 131, 131);
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .tab-content.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-btn-group">
+        <div id="tab1" class="tab-btn">DOG</div>
+        <div id="tab2" class="tab-btn">CAT</div>
+        <div id="tab3" class="tab-btn">PIG</div>
+    </div>
+    <div class="tab-content-group">
+        <div id="content1" class="tab-content">
+            <h1>DOG</h1>
+            <p>The dog is a domesticated carnivore of the family Canidae. It is part of the wolf-like canids, and is the most widely abundant terrestrial carnivore. The dog and the extant gray wolf are sister taxa as modern wolves are not closely related to the wolves that were first domesticated, which implies that the direct ancestor of the dog is extinct. The dog was the first species to be domesticated, and has been selectively bred over millennia for various behaviors, sensory capabilities, and physical attributes.
+            </p>
+        </div>
+        <div id="content2" class="tab-content">
+            <h1>CAT</h1>
+            <p>The cat is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae and is often referred to as the domestic cat to distinguish it from the wild members of the family. A cat can either be a house cat, a farm cat or a feral cat; the latter ranges freely and avoids human contact. Domestic cats are valued by humans for companionship and their ability to hunt rodents. About 60 cat breeds are recognized by various cat registries.
+            </p>
+        </div>
+        <div id="content3" class="tab-content">
+            <h1>PIG</h1>
+            <p>A pig is any of the animals in the genus Sus, within the even-toed ungulate family Suidae. Pigs include domestic pigs and their ancestor, the common Eurasian wild boar, along with other species. Pigs, like all suids, are native to the Eurasian and African continents, ranging from Europe to the Pacific islands. Suids other than the pig are the babirusa of Indonesia, the pygmy hog of Asia, the warthog of Africa, and another genus of pigs from Africa. The suids are a sister clade to peccaries.
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        var btns = document.querySelectorAll(".tab-btn")
+        var contents = document.querySelectorAll(".tab-content")
+
+        
+        tab1.classList.add("active")
+        content1.classList.add("active")
+
+        for (let index = 0; index < btns.length; index++) {
+            const btn = btns[index];
+            const content = contents[index]
+
+            btn.onclick = function () {
+                clearAllActive()
+                btn.classList.add("active")
+                content.classList.add("active")
+            }
+        }
+
+        function clearAllActive(){
+            for (let index = 0; index < btns.length; index++) {
+                btns[index].classList.remove("active")
+                contents[index].classList.remove("active")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
